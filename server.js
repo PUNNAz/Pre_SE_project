@@ -28,10 +28,10 @@ app.use(morgan('combined'));
 //setting database
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-	host: 'sql6.freemysqlhosting.net',
-	user: 'sql6580640',
-	password: 'eyM9AFsXGi',
-	database: 'sql6580640'
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'cs264'
 });
 connection.connect(function (err) {
 	if (err) throw err;
