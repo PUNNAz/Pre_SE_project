@@ -2,7 +2,8 @@
 <html>
 	<title> REQUEST FORM </title>
 	<head>
-		
+		<script src="angular.min.js"></script>
+
 		<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Emblem_of_Thammasat_University.svg/1200px-Emblem_of_Thammasat_University.svg.png">
 		<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
@@ -211,60 +212,53 @@
 				.detail_1 {
 					font-family: "Prompt" , sans-serif;
 					background-repeat: no-repeat;
-				background-position: center;
 					overflow: hidden;
-					background: url(/images/TU.png);
-					height: 400px;
-					width: 1540px;
-					animation: animation 30s infinite;
+					height: 100%;
+					width: 100%;
 				}
 				.textdetail_1 {
-					text-align: center;
-					margin: auto;
+					font-family: "Prompt" , sans-serif;
+					text-align: left;
+					margin-top: 50px;
+					margin-left: 100px;
 					width: 31%;
-					/*	padding: 2%;*/
+					padding: 2%;
 					left: 50%;
-					font-weight: 700;
-					font-size: 50px;
-					color: #FFFFFF;
-					/*border: medium none;
-					background: #FFFFFF none repeat scroll 0% 0%;*/
-					text-shadow: 1px 1px 1px #919191,
-				1px 2px 1px #919191,
-				1px 3px 1px #919191
+					font-weight: 200;
+					font-size: 30px;
+					color: #000000;
+					border: medium;
 				}
-				.detail_2 {
-					height: 45%;
-					width: 44%;
+				table {	
+					font-family: "Prompt" , sans-serif;
+  					border-collapse: collapse;
+  					width: 50%;
+  					height: 15%;
+				  	margin-left: 200px; 
+					margin-bottom: 100px;
+  				}
+  				tr {
+  					font-family: "Prompt" , sans-serif;
+  				}
+				th {
+					font-family: "Prompt" , sans-serif;
+					font-size: 22px;
+					background-color: #FFD13F;
+					border: 3px solid #C3002F;
+					padding: 2px;
+					height: 20px;
+				}
+                td {
+					font-family: "Prompt" , sans-serif;
+					font-size: 22px;
 					background-color: #FFFFFF;
-					float: left;
-					padding-left: 70px;
-					padding-top: 10px;
-				}
-				.detail_3 {
-					height: 45%;
-					width: 56%;
-					background-color: #FFFFFF;
-					float: right;
-					/*padding: 10px;*/
-				}
-				.aniImg {
-		
-				}
-				@keyframes animation {
-				0% {
-				background-position: right;
-				}
-				50% {
-				background-position: left;
-				}
-				100% {
-				background-position: right;
-				}
+					border: 3px solid #C3002F;
+					padding: 6px;
+					height: 50px;
 				}
 		</style>
 	</head>
-	<body>
+	<body ng-app="Module" ng-controller="Controller" ng-init="init()"></body>
 		<form>
 			<div class="sidebar">
 				<div class="logodetail"> &emsp;
@@ -272,27 +266,34 @@
 					<i class='bx bx-menu' id="btmn" > </i>
 				</div>
 				<ul class="list">
-					<li> <a href="#">
-						<i type=button class='bx bxs-pencil bx-tada-hover' onclick="location.href='StudentData.html'"></i>
-						<span class="linkname"> เริ่มการเขียนคำร้อง </span> </a>
-						<span class="showname"> เริ่มการเขียนคำร้อง </span>
+					<!-- <li> <a href="#">
+						<i type=button class='bx bxs-pencil bx-tada-hover' onclick="location.href=''"></i>
+						<span class="linkname"> เอกสารคำร้อง </span> </a>
+						<span class="showname"> เอกสารคำร้อง </span>
 					</li>
 					<li> <a href="#">
-						<i type=button class='bx bxs-envelope bx-tada-hover' onclick="location.href='StudentStatus.html'"> </i>
+						<i type=button class='bx bxs-envelope bx-tada-hover' onclick="location.href='#'"> </i>
 						<span class="linkname"> ติดตามสถานะคำร้อง </span> </a>
 						<span class="showname"> ติดตามสถานะคำร้อง </span>
-					</li>
+					</li> -->
+					<li><a href="#">
+                        <i type=button class='bx bx-arrow-back bx-tada-hover' onclick="location.href='MainPageStudent.html'"></i>
+                        <span class="linkname"> Go Back </span> </a>
+                    <span class="showname"> Go Back </span>
+                    </a>
+                </li>
 					<li class="logout">
 						<div class="logoutdetail">
 							<div class="namelogout">
 								<div class="namelogout1"> LOGOUT </div>
 								<div class="namelogout2"> ออกจากระบบ </div>
 							</div>
-							<i type=button class='bx bx-log-out' id="loggout" onclick="location.href='login.html'"> </i>
+							<i type=button class='bx bx-log-out' id="loggout" onclick="location.href='#'"> </i>
 						</div>
 					</li>
 				</ul>
 			</div>
+			
 			<div class="webpagemain">
 				<div class="webpagelogo"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Emblem_of_Thammasat_University.svg/1200px-Emblem_of_Thammasat_University.svg.png" width="100" height="100" style="margin-top: 5px;"> </div>
 				<div class="webpagemaintext1" > THAMMASAT UNIVERSITY </div> <br>
@@ -300,30 +301,26 @@
 				<div class="webpagemaintext2"> FACULTY OF SCIENCE AND TECHNOLOGY </div>
 			</div>
 			<br><br><br>
-			<div class="webpagemain_details">
-				<div class="detail_1" class="aniImg">
-					<br><br><br><br><br> <div class="textdetail_1">
-					WELCOME </div>
-				</div>
-				<div>
-					<div class="detail_2">
-						<center>
-							<br>
-							<h2 style="text-decoration: underline;"> Request Form</h2>
-						</center>
-						<div style="padding-left: 70px;padding-top: 10px;"> <br>
-							<h4>ระบบยื่นคำร้องออนไลน์ของนักศึกษาคณะวิทยาศาสตร์และเทคโนโลยี <br> <br> นักศึกษาสามารถเขียนคำร้องได้ที่นี่ !</h4>
-						</div>
-					</div>
-					<span>
-						<div class="detail_3">
-							<img src="/images/flowerTU.jpg" style="width: 1000px; height: 320px; ">
-						</div>
-					</span>
-				</div>
-				
-			</div>
 			
+			<div class="webpagemain_details">
+				<div class="detail_1">
+					<div class="textdetail_1" style="text-decoration: underline;"> ติดตามสถานะคำร้อง </div>
+					<p>fogjiore</p>
+					<div> 
+					
+					<table id="strTable">
+						<thead>
+					<tr>
+					<th> เลขทะเบียนนักศึกษา </th>
+					<th> รายการคำร้องที่ขออนุมติ </th>
+					<th> สถานะคำร้อง  </th>
+					</tr>
+					<!-- <tr> <td> {{db[0].type}} </td> <td> {{db[0].status}} </td> <tr>
+                    <tr> <td> ...  </td> <td> .....</td> <tr> -->
+					</thead></table>
+				</div>
+				</div>
+			</div>
 			<script>
 				let sidebar = document.querySelector(".sidebar");
 				let closesidebar = document.querySelector("#btmn");
@@ -341,4 +338,5 @@
 			</script>
 		</form>
 	</body>
+	<script src="StudentStatus.js" type="text/javascript"></script>
 </html>

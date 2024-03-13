@@ -2,8 +2,7 @@
 <title> REQUEST FORM </title>
 
 <head>
-    <script src="controllerforเพิ่ม.js">
-    </script>
+    <script src="angular.min.js"></script>
     <link rel="icon"
         href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Emblem_of_Thammasat_University.svg/1200px-Emblem_of_Thammasat_University.svg.png">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
@@ -290,28 +289,11 @@
             font-size: 100%;
             float: all;
         }
-
-        input[type=text],
-        input[type=number] {
-            float: all;
-            font-size: 100%;
-            width: 80%;
-            padding: 10px 15px;
-            margin: 5px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            border: 1px solid #ccc;
-        }
     </style>
 </head>
 
-<body>
-    <form action="/AddDropData" method="post">
+<body ng-app="Module" ng-controller="Controller" ng-init="init()">
+    <!-- <form action="/Mypage" method="post"> -->
         <div class="sidebar">
             <div class="logodetail">
                 <i class='bx bxs-book-open icon'> </i>
@@ -320,11 +302,11 @@
             </div>
             <ul class="list">
                 <li><a href="#">
-                        <i type=button class='bx bx-arrow-back bx-tada-hover' onclick="location.href='ProjectWebPage3.html'"></i>
-                        <span class="linkname"> Go Back </span> </a>
-                    <span class="showname"> Go Back </span>
-                    </a>
-                </li>
+                    <i type=button class='bx bx-arrow-back bx-tada-hover' onclick="location.href='Showstudentdata.html'"></i>
+                    <span class="linkname"> Go Back </span> </a>
+                <span class="showname"> Go Back </span>
+                </a>
+            </li>
                 <li class="logout">
                     <div class="logoutdetail">
                         <div class="namelogout">
@@ -347,63 +329,43 @@
         </div>
         <br><br>
         <div class="webpagemainanother">
-            <center>
-                <h3><b> คำร้องขอจดทะเบียนล่าช้า(เพิ่ม)</b></h3><br>
-                <input type="button" class="buttonAW" value="เพิ่มตาราง" onclick="addRows('addTable')"
-                    style="font-family: 'Mitr', sans-serif;">&emsp;
-                <input type="button" class="buttonAW" value="ลดตาราง" onclick="deleteRows('addTable')"
-                    style="font-family: 'Mitr', sans-serif;">
-            </center>
-            <table class="center" id="addTable" style="margin-left: 80px"><br>
-                <tr>
-                    <label>
-                        <th>ลำดับ</th>
-                        <th>รหัสวิชา</th>
-                        <th>ชื่อวิชา</th>
-                        <th>Section</th>
-                        <th>วันเวลา</th>
-                        <th>หน่วยกิต</th>
-                        <th>ชื่อผู้สอน</th>
-                        <!--<th>ผู้สอนอนุญาต</th>-->
-                    </label>
-                </tr>
-                <tr>
-                    <td id="addcol0">
-                        <center><label>1.</label></center>
-                    </td>
-                    <td><input type="text" id="addcol1" name="ID"></td>
-                    <td><input type="text" id="addcol2" name="subject"></td>
-                    <td><input type="text" id="addcol3" name="section"></td>
-                    <td><input type="text" id="addcol4" name="subjectDate"></td>
-                    <td><input type="number" id="addcol5" name="credit" value=0 ></td>
-                    <td><input type="text" id="addcol6" name="teacherName"></td>
-                   <!-- <td><center><input type="checkbox" id="addcol7" name="teacherAccept"></center></td>-->
-                </tr>
-            </table>
-            <center>
-                <h3 style="font-size: 18px;">เหตุผลที่ต้องการเพิ่ม</h3>
-                <textarea id="reason" name="reason" cols="150" rows="10"></textarea><br><br>
-                <br><br>
-                <input type="submit" class="buttonAW" id="submit" value="Submit" onclick="checkEverything()" >
-            </center>
-        </div>
-        <script>
-            let sidebar = document.querySelector(".sidebar");
-            let closesidebar = document.querySelector("#btmn");
+            <br>
+            <div class="date" align="right" margin style="margin-right: 50px;">
+                <b>วันที่ :: </b><label for="date" id="date"></label>
+            </div><br>
+            <div class="margin">
+            </div>
+            <fieldset>
+                <div>
+                    <label id="reason"><b style="color: #C3002F">&#128100;เหตุผลการของขอเพิ่ม-ถอนของนักศึกษา :</b> {{reason}}</label><br><br><br><br>
+                    <center><input type=submit class="buttonAW" id="submit" onclick="location.href='allowAndsubmit.html'" ></center>
 
-            closesidebar.addEventListener("click", () => {
-                sidebar.classList.toggle("open");
-                menusidebarChange();
-            });
+                </div>
+            </fieldset><br><br>
+            <script>
+                let sidebar = document.querySelector(".sidebar");
+                let closesidebar = document.querySelector("#btmn");
 
-            function menusidebarChange() {
-                if (sidebar.classList.contains("open")) {
-                    closesidebar.classList.replace("bx-menu", "bx-menu-alt-right");
-                } else {
-                    closesidebar.classList.replace("bx-menu-alt-right", "bx-menu");
+                closesidebar.addEventListener("click", () => {
+                    sidebar.classList.toggle("open");
+                    menusidebarChange();
+                });
+
+                function menusidebarChange() {
+                    if (sidebar.classList.contains("open")) {
+                        closesidebar.classList.replace("bx-menu", "bx-menu-alt-right");
+                    } else {
+                        closesidebar.classList.replace("bx-menu-alt-right", "bx-menu");
+                    }
                 }
-            }
-        </script>
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0');
+                var yyyy = today.getFullYear();
+                today = dd + '/' + mm + '/' + (yyyy + 543);
+                document.getElementById('date').innerHTML = today;
+            </script>
+            <script src="Showquitreason.js" type="text/javascript"></script>
     </form>
 
 </body>

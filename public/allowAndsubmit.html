@@ -1,25 +1,61 @@
+</html>
+
 <html>
 <title> REQUEST FORM </title>
 
 <head>
-    <script src="controllerforเพิ่ม.js">
-    </script>
+
     <link rel="icon"
         href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Emblem_of_Thammasat_University.svg/1200px-Emblem_of_Thammasat_University.svg.png">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+            font-family: "Prompt", sans-serif;
         }
 
         body {
             background-color: #FFFBF6;
+            font-size: 18px;
+        }
+
+        input {
+            font-size: 14px;
+            width: 120px;
+        }
+
+        fieldset {
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            background-color: #FFFAF6;
+            padding-left: 30px;
+            padding-bottom: 30px;
+            padding-top: 10px;
+        }
+
+        textarea {
+            font-family: 'Prompt', sans-serif;
+            font-size: 14px;
+        }
+
+        h2 {
+            padding: 0.25em 0.5em;
+            color: #494949;
+            background: transparent;
+            border-left: solid 5px #7db4e6;
+        }
+
+        .margin {
+            margin-right: 6%;
+            margin-left: 10%;
+            margin-top: 2.5%;
+            margin-bottom: 7%;
         }
 
         .sidebar {
@@ -263,14 +299,14 @@
         }
 
         .buttonAW {
-            background-color: #C68B59;
+            background-color: #C3002F;
             border: none;
+            border-radius: 5px;
             color: white;
-            padding: 10px 15px;
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 12px;
+            width: 105px;
+            height: 35px;
+            font-size: 18px;
         }
 
         select {
@@ -290,28 +326,11 @@
             font-size: 100%;
             float: all;
         }
-
-        input[type=text],
-        input[type=number] {
-            float: all;
-            font-size: 100%;
-            width: 80%;
-            padding: 10px 15px;
-            margin: 5px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            border: 1px solid #ccc;
-        }
     </style>
 </head>
 
 <body>
-    <form action="/AddDropData" method="post">
+    <form action="/testnew" method="post">
         <div class="sidebar">
             <div class="logodetail">
                 <i class='bx bxs-book-open icon'> </i>
@@ -319,12 +338,6 @@
                 <i class='bx bx-menu' id="btmn"> </i>
             </div>
             <ul class="list">
-                <li><a href="#">
-                        <i type=button class='bx bx-arrow-back bx-tada-hover' onclick="location.href='ProjectWebPage3.html'"></i>
-                        <span class="linkname"> Go Back </span> </a>
-                    <span class="showname"> Go Back </span>
-                    </a>
-                </li>
                 <li class="logout">
                     <div class="logoutdetail">
                         <div class="namelogout">
@@ -345,47 +358,19 @@
                 noshade="noshade">
             <div class="webpagemaintext2"> FACULTY OF SCIENCE AND TECHNOLOGY </div>
         </div>
-        <br><br>
-        <div class="webpagemainanother">
-            <center>
-                <h3><b> คำร้องขอจดทะเบียนล่าช้า(เพิ่ม)</b></h3><br>
-                <input type="button" class="buttonAW" value="เพิ่มตาราง" onclick="addRows('addTable')"
-                    style="font-family: 'Mitr', sans-serif;">&emsp;
-                <input type="button" class="buttonAW" value="ลดตาราง" onclick="deleteRows('addTable')"
-                    style="font-family: 'Mitr', sans-serif;">
-            </center>
-            <table class="center" id="addTable" style="margin-left: 80px"><br>
-                <tr>
-                    <label>
-                        <th>ลำดับ</th>
-                        <th>รหัสวิชา</th>
-                        <th>ชื่อวิชา</th>
-                        <th>Section</th>
-                        <th>วันเวลา</th>
-                        <th>หน่วยกิต</th>
-                        <th>ชื่อผู้สอน</th>
-                        <!--<th>ผู้สอนอนุญาต</th>-->
-                    </label>
-                </tr>
-                <tr>
-                    <td id="addcol0">
-                        <center><label>1.</label></center>
-                    </td>
-                    <td><input type="text" id="addcol1" name="ID"></td>
-                    <td><input type="text" id="addcol2" name="subject"></td>
-                    <td><input type="text" id="addcol3" name="section"></td>
-                    <td><input type="text" id="addcol4" name="subjectDate"></td>
-                    <td><input type="number" id="addcol5" name="credit" value=0 ></td>
-                    <td><input type="text" id="addcol6" name="teacherName"></td>
-                   <!-- <td><center><input type="checkbox" id="addcol7" name="teacherAccept"></center></td>-->
-                </tr>
-            </table>
-            <center>
-                <h3 style="font-size: 18px;">เหตุผลที่ต้องการเพิ่ม</h3>
-                <textarea id="reason" name="reason" cols="150" rows="10"></textarea><br><br>
-                <br><br>
-                <input type="submit" class="buttonAW" id="submit" value="Submit" onclick="checkEverything()" >
-            </center>
+
+        <div class="margin">
+            <fieldset>
+                
+                    <br>
+                    <input type="radio" id="allow" name="allow">
+                    <label for="allow">อนุมัติ</label><br><br>
+                    ความคิดเห็นของคณะอาจารย์<br><br>
+                    <textarea id="reason" name="reason" cols="150" rows="10"></textarea><br><br>
+                    <br><input type="submit" class="buttonAW" id="submit" value="Submit" onclick="myFunction()">
+                
+
+        </div>
         </div>
         <script>
             let sidebar = document.querySelector(".sidebar");
@@ -402,6 +387,21 @@
                 } else {
                     closesidebar.classList.replace("bx-menu-alt-right", "bx-menu");
                 }
+            }
+        </script>
+        <script>
+            var info={};
+                function myFunction(){
+                var r = document.getElementById("reason").value;
+
+                if(r==""){
+                alert("โปรดใส่เหตุผล");
+                return false;
+                }
+                else{
+                info["cause"]=r;
+                }
+                location.href = "MainPageTeacher.html";
             }
         </script>
     </form>

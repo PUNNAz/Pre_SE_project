@@ -311,7 +311,7 @@
 </head>
 
 <body>
-    <form>
+    <form action="/Dropdata" method="post">
         <div class="sidebar">
             <div class="logodetail">
                 <i class='bx bxs-book-open icon'> </i>
@@ -364,27 +364,27 @@
                         <th>วันเวลา</th>
                         <th>หน่วยกิต</th>
                         <th>ชื่อผู้สอน</th>
-                        <th>ผู้สอนอนุญาต</th>
+                        <!--<th>ผู้สอนอนุญาต</th>-->
                     </label>
                 </tr>
                 <tr>
                     <td id="dropcol0">
                         <center><label>1.</label></center>
                     </td>
-                    <td><input type="text" id="dropcol1" name="ID[]"></td>
-                    <td><input type="text" id="dropcol2" name="subject[]"></td>
-                    <td><input type="text" id="dropcol3" name="section[]"></td>
-                    <td><input type="text" id="dropcol4" name="subjectDate[]"></td>
-                    <td><input type="number" id="dropcol5" name="credit[]" value=0 ></td>
-                    <td><input type="text" id="dropcol6" name="teacherName[]"></td>
-                    <td><center><input type="checkbox" id="dropcol7" name="teacherAccept[]"></center></td>
+                    <td><input type="text" id="dropcol1" name="ID"></td>
+                    <td><input type="text" id="dropcol2" name="subject"></td>
+                    <td><input type="text" id="dropcol3" name="section"></td>
+                    <td><input type="text" id="dropcol4" name="subjectDate"></td>
+                    <td><input type="number" id="dropcol5" name="credit" value=0 ></td>
+                    <td><input type="text" id="dropcol6" name="teacherName"></td>
+                    <!--<td><center><input type="checkbox" id="dropcol7" name="teacherAccept[]"></center></td>-->
                 </tr>
             </table>
             <center>
                 <h3 style="font-size: 18px;">เหตุผลที่ต้องการถอน</h3>
                 <textarea id="reason" name="reason" cols="150" rows="10"></textarea><br><br>
                 <br><br>
-                <input type=button class="buttonAW" id="submit" value="Submit" onclick="checkEverything()">
+                <input type="submit" class="buttonAW" id="submit" value="Submit" >
                 
             </center>
         </div>
